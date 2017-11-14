@@ -56,8 +56,10 @@ public class TextFileExample {
         c.setEmail(email);
         c.setNumber(phone);
         //add contact to list
-        contacts[i]=c;
-        
-    }
+        contacts[i]=c;    
+    }//print out rolodex
+        for (int  i=0;i<contacts.length;i++){
+            System.out.println(contacts[i]);
+        }
     }
 }
