@@ -19,18 +19,20 @@ public class TextFileExample {
     public static void main(String[] args) {
         //create a balnk file reader
         FileReader file = null;
-        //fix loading later
-//        try{
-//            URL url= ClassLoader.getSystemClassLoader().getResource("input.txt");
-//            //create file reader
-//            file = new FileReader(url.getPath());
-
-        try {
-            file = new FileReader("input.txt");
-        } catch (Exception e) {
-            //handle any errors
+        try{
+            URL url= TextFileExample.class.getResource("input.txt");
+        System.out.println(url); 
+        file= new FileReader(url.getFile());
+         }catch (Exception e){
+             //handle any errors
             //print out the lovely red errors
             e.printStackTrace();
+            
+//create file reader
+//        try {
+//            file = new FileReader("input.txt");
+//        } catch (Exception e) {
+            
 
             //exit the program
             System.exit(0);
@@ -39,26 +41,26 @@ public class TextFileExample {
         Scanner in = new Scanner(file);
         //get first number of the addresses
         int numAddresses = in.nextInt();
-        
+
         //move to next line
         in.nextLine();
-        
+
         //create an empty roladex
         Contact[] contacts = new Contact[numAddresses];
-        
+
         //go through the file
-        for (int i=0;i<numAddresses;i++){
-        String name = in.next();
-        String phone = in.next();
-        String email = in.nextLine();
-        //create contact
-        Contact c = new Contact (name);
-        c.setEmail(email);
-        c.setNumber(phone);
-        //add contact to list
-        contacts[i]=c;    
-    }//print out rolodex
-        for (int  i=0;i<contacts.length;i++){
+        for (int i = 0; i < numAddresses; i++) {
+            String name = in.next();
+            String phone = in.next();
+            String email = in.nextLine();
+            //create contact
+            Contact c = new Contact(name);
+            c.setEmail(email);
+            c.setNumber(phone);
+            //add contact to list
+            contacts[i] = c;
+        }//print out rolodex
+        for (int i = 0; i < contacts.length; i++) {
             System.out.println(contacts[i]);
         }
     }
