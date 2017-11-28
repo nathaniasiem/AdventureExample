@@ -24,7 +24,15 @@ public class Contact {
     public void setEmail (String email){
         this.email=email;
     }
-    
+    public String getName(){
+        return name;
+    }
+    public String getPhone(){
+        return phoneNumber;
+    }
+    public String getEmail(){
+        return email;
+    }
     @Override
     //pretty way to print out the contact information
     public String toString(){
